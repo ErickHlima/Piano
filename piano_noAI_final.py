@@ -35,7 +35,7 @@ def front():
 
     def on_start():
         texto = partitura.toPlainText()
-        # normaliza espaços e quebras de linha para uma única linha
+        # Normaliza espaços e quebras de linha para uma única linha
         musica = " ".join(texto.split())
         intervalo = float(delay.value())
         result["musica"] = musica
@@ -54,7 +54,7 @@ pyautogui.PAUSE = 0
 
 CONTAGEM_REGRESSIVA = 5
 
-# Teclas válidas (as mesmas mostradas na imagem do Virtual Piano)
+# Teclas válidas (as mesmas do Virtual Piano)
 TECLAS_VALIDAS = set(
     "1234567890qwertyuiopasdfghjklzxcvbnm"
     "!@#$%^&*()QWERTYUIOPASDFGHJKLZXCVBNM"
@@ -62,7 +62,7 @@ TECLAS_VALIDAS = set(
 
 
 def tocar_token(token: str):
-    """Pressiona uma nota isolada ou um acorde entre colchetes."""
+    # Pressiona uma nota isolada ou um acorde entre colchetes.
     token = token.strip()
     if not token:
         return
@@ -123,6 +123,7 @@ def tocar_musica(musica: str, intervalo: float):
 
 if __name__ == "__main__":
     MUSICA, INTERVALO = front()
+    # Local do executavel do navegador
     subprocess.Popen([r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe","https://virtualpiano.net/"])
 
     for i in range(CONTAGEM_REGRESSIVA, 0, -1):
